@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package user;
+
+service UserService {
+    rpc FindUserByName () returns (User) {}
+}
+
+message UserByName {
+    string username = 1;
+}
+
+message User {
+    int32 Id = 1;
+    string username = 2;
+}
