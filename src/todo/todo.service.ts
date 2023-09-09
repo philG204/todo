@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { Todo } from '../entity/todo.entity';
 import { Client, ClientGrpc, Transport } from '@nestjs/microservices';
 import { join } from 'path';
-//import { UserService } from './protos/user.proto';
+import { User, UserByName } from 'src/protos/user_pb.js';
 
 @Injectable()
 export class TodoService implements OnModuleInit {
@@ -12,7 +12,7 @@ export class TodoService implements OnModuleInit {
         transport: Transport.GRPC,
         options: {
           package: 'user',
-          protoPath: join(__dirname, 'user.proto'),
+          protoPath: join(__dirname, 'protos/user.proto'),
           url: 'user-app:50051',
         },
       })
@@ -23,11 +23,11 @@ export class TodoService implements OnModuleInit {
     constructor(@InjectRepository(Todo) private readonly todoRepository: Repository<Todo>){}
     
     onModuleInit() {
-       // this.userService = this.client.getService<UserService>('UserService');
+      this.userService = this.client.getService<UserServiceService>('UserServiceService');
     }
 
     async getUser(userId: string): Promise<any> {
-      //const userService = this.client.
+      const userService = this.client.
     }
 
     async findAllByUser(user: string): Promise<Todo[]>{
