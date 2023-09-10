@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package user;
 
-service User {
+service UserGrpc {
     rpc FindUserByName (UserByName) returns (User);
 }
 
