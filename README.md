@@ -23,7 +23,9 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
-
+This is an enhancement of the user managment web app and it is a back end microservices for storing user's todo's .
+It is communicating with the user managment back end microservice over grpc calls, wich is at the current state
+not working.
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Installation
